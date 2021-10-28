@@ -10,3 +10,6 @@ TASKS:
 ### 2: [REST API]
 TASKS:
 - [2.1] Create CRUD Rest API
+- [2.2] Implement Hibernate Validation
+
+

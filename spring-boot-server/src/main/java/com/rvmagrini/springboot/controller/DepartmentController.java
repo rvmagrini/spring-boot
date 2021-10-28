@@ -2,6 +2,8 @@ package com.rvmagrini.springboot.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,9 +27,8 @@ public class DepartmentController {
 	
 	
 	@PostMapping("/departments")
-	public Department saveDepartment(@RequestBody Department department) {
+	public Department saveDepartment(@Valid @RequestBody Department department) {
 		return service.saveDepartment(department);
-		
 	}
 	
 	@GetMapping("/departments")

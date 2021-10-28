@@ -12,4 +12,6 @@ TASKS:
 - [2.1] Create CRUD Rest API
 - [2.2] Implement Hibernate Validation
 
-
+### 3: [LOG]
+TASKS:
+- [3.1] Add Logger to Controller

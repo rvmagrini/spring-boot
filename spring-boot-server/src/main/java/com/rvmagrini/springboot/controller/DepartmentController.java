@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.rvmagrini.springboot.entity.Department;
+import com.rvmagrini.springboot.exception.DepartmentNotFoundException;
 import com.rvmagrini.springboot.service.DepartmentService;
 
 @RestController
@@ -30,7 +32,7 @@ public class DepartmentController {
 	
 	
 	@PostMapping("/departments")
-	public Department saveDepartment(@Valid @RequestBody Department department) {
+	public Department saveDepartment(@Valid @RequestBody Department department) throws MethodArgumentNotValidException {
 		LOGGER.info("Inside saveDepartment of DepartmentController");
 		return service.saveDepartment(department);
 	}
@@ -42,13 +44,13 @@ public class DepartmentController {
 	}
 	
 	@GetMapping("/departments/{id}")
-	public Department fetchDepartmentById(@PathVariable("id") Long departmentId) {
+	public Department fetchDepartmentById(@PathVariable("id") Long departmentId) throws DepartmentNotFoundException {
 		LOGGER.info("Inside fetchDepartmentById of DepartmentController");
 		return service.fetchDepartmentById(departmentId);
 	}
 	
 	@DeleteMapping("/departments/{id}")
-	public String deleteDepartmentById(@PathVariable("id") Long departmentId) {
+	public String deleteDepartmentById(@PathVariable("id") Long departmentId) throws DepartmentNotFoundException {
 		LOGGER.info("Inside deleteDepartmentById of DepartmentController");
 		Department deletedDepartment = service.fetchDepartmentById(departmentId);
 		service.deleteDepartmentById(departmentId);
@@ -58,13 +60,13 @@ public class DepartmentController {
 	@PutMapping("/departments/{id}")
 	public Department updateDepartment(
 			@PathVariable("id") Long departmentId, 
-			@RequestBody Department updatedDepartment) {
+			@Valid @RequestBody Department updatedDepartment) throws DepartmentNotFoundException {
 		LOGGER.info("Inside updateDepartment of DepartmentController");
 		return service.updateDepartment(departmentId, updatedDepartment);
 	}
 	
 	@GetMapping("/departments/name/{name}")
-	public Department fetchDepartmentByName(@PathVariable("name") String departmentName) {
+	public Department fetchDepartmentByName(@PathVariable("name") String departmentName) throws DepartmentNotFoundException {
 		LOGGER.info("Inside fetchDepartmentByName of DepartmentController");
 		return service.fetchDepartmentByName(departmentName);
 	}

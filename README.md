@@ -19,3 +19,7 @@ TASKS:
 ### 4: [LOMBOK]
 TASKS:
 - [4.1] Implement Lombok
+
+### 5: [EXCEPTION]
+TASKS:
+- [5.1] Create Exception Handlers

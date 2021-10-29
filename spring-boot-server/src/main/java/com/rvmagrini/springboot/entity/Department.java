@@ -24,12 +24,13 @@ public class Department {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long departmentId;
 	
-	@NotBlank(message = "Please add Department Name")
+	@NotBlank(message = "Department Name is mandatory")
 	private String departmentName;
 	
+	@NotBlank(message = "Department Address is mandatory")
 	private String departmentAddress;
 	
-	@Length(max=5, min=5, message = "Code must have 5 characters")
+	@Length(max=5, min=5, message = "Department Code must have 5 characters")
 	private String departmentCode;
 
 }

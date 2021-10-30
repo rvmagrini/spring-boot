@@ -1,5 +1,5 @@
 # Spring Boot Tutorial 
-## 
+## Basics of Spring Boot
 
 ## Process:
 
@@ -27,3 +27,4 @@ TASKS:
 ### 6: [TEST]
 TASKS:
 - [6.1] Implement Unit Tests for Service, Repository and Controller
+

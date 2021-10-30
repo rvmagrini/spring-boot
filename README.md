@@ -23,3 +23,7 @@ TASKS:
 ### 5: [EXCEPTION]
 TASKS:
 - [5.1] Create Exception Handlers
+
+### 6: [TEST]
+TASKS:
+- [6.1] Implement Unit Tests for Service, Repository and Controller

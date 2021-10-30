@@ -41,7 +41,7 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
 				.stream().map(fieldError -> 
 				fieldError.getDefaultMessage()).collect(Collectors.toList());
 		
-		return ResponseEntity.status(status).body("Argument not valid: " + validationList.toString());
+		return ResponseEntity.status(status).body("Argument not valid: " + validationList);
 		
 	}
 	
